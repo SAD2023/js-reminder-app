@@ -1,0 +1,43 @@
+body {
+  background-color: rgb(238, 180, 130)
+}
+
+.grid {
+  background-color: rgb(219, 94, 56);
+  height: 90vh;
+  width: 90vh;
+  border-radius: 25px;
+  margin: auto;
+}
+
+.header {
+  font-family: 'East Sea Dokdo', cursive;
+  font-size: 50px;
+  margin: auto;
+  width: 30vh;
+  position: relative;
+}
+
+.form {
+  font-family: 'East Sea Dokdo', cursive;
+  font-size: 50px;
+  margin: auto;
+  width: 50vh;
+  height: 10vh;
+  position: relative;
+}
+
+#new-reminder {
+  border-radius: 10px;
+  background-color: wheat;
+  width: 42vh;
+}
+
+.list-of-reminders {
+  font-size: 30px;
+  font-family: 'East Sea Dokdo', cursive;
+  margin: auto;
+  width: 50vh;
+  height: 10vh;
+  position: relative;
+}
