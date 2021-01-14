@@ -38,6 +38,19 @@ body {
   font-family: 'East Sea Dokdo', cursive;
   margin: auto;
   width: 50vh;
-  height: 10vh;
+  height: 35vh;
   position: relative;
+  overflow-y:scroll
+}
+
+.list-of-old-reminders {
+  font-size: 30px;
+  font-family: 'East Sea Dokdo', cursive;
+  opacity: 0.5;
+  margin: auto;
+  width: 50vh;
+  height: 30vh;
+  position: relative;
+  overflow-y:scroll;
+  text-decoration: line-through;
 }
