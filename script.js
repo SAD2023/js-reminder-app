@@ -1,3 +1,4 @@
+// Creates counter for active reminders
 if (localStorage.getItem("counter") === null) {
   var old_counter = 0
 }
@@ -6,6 +7,7 @@ else {
 }
 counter = 0 + old_counter
 
+// Function adds new reminder to the page once the top form is submitted
 function submission(evt) {
   var reminder = document.getElementById("new-reminder").value;
   // add value to localStorage
@@ -28,7 +30,6 @@ function submission(evt) {
   element.appendChild(breakline)
 
   document.getElementById("new-reminder").value = ""
-  // document.getElementById("list-of-reminders").innerText = reminder
 
   // Update counter
   counter++;
@@ -38,13 +39,13 @@ function submission(evt) {
   evt.preventDefault();
 };
 
+// Listener for when a new reminder is added
 var form = document.getElementById("main-form")
 form.addEventListener("submit", submission)
 
 
-// function to reload old form data
+// function to reload old form data. Restores active reminders to the page
 function restore() {
-  //alert(localStorage.getItem("counter"))
   var counter = parseInt(localStorage.getItem("counter"))
   for (i = 0; i < counter; i++) {
     data = localStorage.getItem(`${i}`)
@@ -67,6 +68,7 @@ function restore() {
   }
 }
 
+// restores the past reminders to the page
 function restore_old_reminders() {
   var past_counter = parseInt(localStorage.getItem("past-counter"))
   for (i = 0; i < past_counter; i++) {
@@ -89,15 +91,17 @@ function restore_old_reminders() {
     }
   }
 }
-// what happens when it loads new page
-// document.addEventListener("DOMContentLoaded", restore);
+
+// called to restore info when it loads new page
 window.onload = restore()
 window.onload = restore_old_reminders()
 
+// checks if any of the checkboxes have been checked
 var checkboxes = document.querySelectorAll('input[type=checkbox]')
-// console.log(checkboxes)
 checkboxes.forEach(check_if_checked)
 
+
+// sets the past counter for past reminders
 if (localStorage.getItem("past-counter") === null) {
   var old_past_counter = 0
 }
@@ -106,25 +110,22 @@ else {
 }
 past_counter = 0 + old_counter
 
-// what happens when a box is checked
+// called when a box is checked. Removes it from active reminders and adds to
+// past reminders
 function check_if_checked(checkbox) {
   console.log(checkbox)
   checkbox.addEventListener('change', function () {
     if (localStorage.getItem(this.id) !== null) {
       if (this.checked) {
-        // console.log("Checkbox: " + `${this.value}`)
-
         this.remove()
         document.getElementById(this.id + "label").remove()
         localStorage.removeItem(this.id)
 
         //add checked element to old-reminders section
         var element = document.getElementById("list-of-old-reminders");
-        //console.log(checkbox)
         var label = document.createElement("label")
         label.textContent = checkbox.value
         checkbox.class = "old-stuff"
-        // document.getElementsByClassName("old-stuff").disabled = true
         element.appendChild(checkbox);
         element.appendChild(label)
         var breakline = document.createElement("br")
